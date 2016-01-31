@@ -20,6 +20,7 @@
 		46F515A21C5EA6C700CB3DD7 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F515A01C5EA6C700CB3DD7 /* Quick.framework */; };
 		46F515A41C5EA6F000CB3DD7 /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46F5159F1C5EA6C700CB3DD7 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		46F515A51C5EA6F000CB3DD7 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46F515A01C5EA6C700CB3DD7 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		46F515A81C5EA73400CB3DD7 /* reddit.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F515A71C5EA73400CB3DD7 /* reddit.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		46F5159D1C5EA61E00CB3DD7 /* reddit.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = reddit.proto; path = proto/reddit.proto; sourceTree = "<group>"; };
 		46F5159F1C5EA6C700CB3DD7 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
 		46F515A01C5EA6C700CB3DD7 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
+		46F515A71C5EA73400CB3DD7 /* reddit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reddit.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		46F515891C5EA32300CB3DD7 /* SwiftProtobufTests */ = {
 			isa = PBXGroup;
 			children = (
+				46F515A61C5EA72500CB3DD7 /* Resources */,
 				46F5158A1C5EA32300CB3DD7 /* SwiftProtobufTests.swift */,
 				46F5158C1C5EA32300CB3DD7 /* Info.plist */,
 			);
@@ -155,6 +158,14 @@
 				46F5159D1C5EA61E00CB3DD7 /* reddit.proto */,
 			);
 			name = proto;
+			sourceTree = "<group>";
+		};
+		46F515A61C5EA72500CB3DD7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				46F515A71C5EA73400CB3DD7 /* reddit.json */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F515A81C5EA73400CB3DD7 /* reddit.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

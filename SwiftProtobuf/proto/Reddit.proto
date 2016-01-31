@@ -1,0 +1,8 @@
+message Data {
+    optional string modHash = 1;
+}
+
+message Reddit {
+    optional string kind = 1;
+    optional Data data = 2;
+}

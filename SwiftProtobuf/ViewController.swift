@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  SwiftProtobuf
-//
-//  Created by Russell Stephens on 1/31/16.
-//  Copyright © 2016 Russell Stephens. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {

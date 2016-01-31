@@ -16,6 +16,10 @@
 		46F515971C5EA4D300CB3DD7 /* ProtocGenSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F515961C5EA4D300CB3DD7 /* ProtocGenSwift.framework */; };
 		46F515991C5EA4EA00CB3DD7 /* ProtocGenSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46F515961C5EA4D300CB3DD7 /* ProtocGenSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		46F5159E1C5EA61E00CB3DD7 /* reddit.proto in Resources */ = {isa = PBXBuildFile; fileRef = 46F5159D1C5EA61E00CB3DD7 /* reddit.proto */; };
+		46F515A11C5EA6C700CB3DD7 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F5159F1C5EA6C700CB3DD7 /* Nimble.framework */; };
+		46F515A21C5EA6C700CB3DD7 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F515A01C5EA6C700CB3DD7 /* Quick.framework */; };
+		46F515A41C5EA6F000CB3DD7 /* Nimble.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46F5159F1C5EA6C700CB3DD7 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		46F515A51C5EA6F000CB3DD7 /* Quick.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46F515A01C5EA6C700CB3DD7 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,18 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		46F515A31C5EA6CF00CB3DD7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				46F515A41C5EA6F000CB3DD7 /* Nimble.framework in Embed Frameworks */,
+				46F515A51C5EA6F000CB3DD7 /* Quick.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +71,8 @@
 		46F5158C1C5EA32300CB3DD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46F515961C5EA4D300CB3DD7 /* ProtocGenSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProtocGenSwift.framework; path = Carthage/Build/iOS/ProtocGenSwift.framework; sourceTree = SOURCE_ROOT; };
 		46F5159D1C5EA61E00CB3DD7 /* reddit.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = reddit.proto; path = proto/reddit.proto; sourceTree = "<group>"; };
+		46F5159F1C5EA6C700CB3DD7 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
+		46F515A01C5EA6C700CB3DD7 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +88,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F515A21C5EA6C700CB3DD7 /* Quick.framework in Frameworks */,
+				46F515A11C5EA6C700CB3DD7 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +141,8 @@
 		46F515951C5EA4B300CB3DD7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				46F5159F1C5EA6C700CB3DD7 /* Nimble.framework */,
+				46F515A01C5EA6C700CB3DD7 /* Quick.framework */,
 				46F515961C5EA4D300CB3DD7 /* ProtocGenSwift.framework */,
 			);
 			name = Frameworks;
@@ -165,6 +187,7 @@
 				46F515821C5EA32300CB3DD7 /* Sources */,
 				46F515831C5EA32300CB3DD7 /* Frameworks */,
 				46F515841C5EA32300CB3DD7 /* Resources */,
+				46F515A31C5EA6CF00CB3DD7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -431,6 +454,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftProtobufTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rstephens.SwiftProtobufTests;
@@ -443,6 +470,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftProtobufTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rstephens.SwiftProtobufTests;

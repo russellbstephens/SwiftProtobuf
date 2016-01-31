@@ -25,6 +25,21 @@
 		46F515AD1C5EA7D500CB3DD7 /* ProtobufSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F515AC1C5EA7D500CB3DD7 /* ProtobufSpec.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		46A31B071C5EB316008343B1 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.proto";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			name = "Files '*.proto' using Script";
+			outputFiles = (
+				"${PROJECT_DERIVED_FILE_DIR}/${INPUT_FILE_BASE}.pb.swift",
+			);
+			script = "/usr/local/bin/protoc --plugin=\"$PROJECT_DIR/Carthage/Checkouts/protoc-gen/swift/protoc-gen-swift\" --proto_path=\"$INPUT_FILE_DIR\" \"$INPUT_FILE_PATH\" --swift_out=\"$PROJECT_DERIVED_FILE_DIR\"";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXContainerItemProxy section */
 		46F515871C5EA32300CB3DD7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -189,6 +204,7 @@
 				46F515981C5EA4DC00CB3DD7 /* Embed Frameworks */,
 			);
 			buildRules = (
+				46A31B071C5EB316008343B1 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -522,6 +538,7 @@
 				46F515911C5EA32300CB3DD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		46F515921C5EA32300CB3DD7 /* Build configuration list for PBXNativeTarget "SwiftProtobufTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +547,7 @@
 				46F515941C5EA32300CB3DD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

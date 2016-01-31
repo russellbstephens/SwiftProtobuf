@@ -25,10 +25,12 @@ class ProtobufSpec: QuickSpec {
         let jsonStubPath = NSBundle(forClass: self.dynamicType).pathForResource("reddit", ofType: "json")!
         let jsonStubData = NSData(contentsOfFile: jsonStubPath)!
         
+        stubRequest("GET", url.absoluteString).andReturnRawResponse(jsonStubData)
+        
         describe("stubbing") {
             
             it("stubs") {
-                stubRequest("GET", url.absoluteString).andReturnRawResponse(jsonStubData)
+                
                 let urlData = NSData(contentsOfURL: url)
                 expect(urlData).toEventually(equal(jsonStubData))
             }

@@ -15,6 +15,7 @@
 		46F5158B1C5EA32300CB3DD7 /* SwiftProtobufTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5158A1C5EA32300CB3DD7 /* SwiftProtobufTests.swift */; };
 		46F515971C5EA4D300CB3DD7 /* ProtocGenSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F515961C5EA4D300CB3DD7 /* ProtocGenSwift.framework */; };
 		46F515991C5EA4EA00CB3DD7 /* ProtocGenSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46F515961C5EA4D300CB3DD7 /* ProtocGenSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		46F5159E1C5EA61E00CB3DD7 /* reddit.proto in Resources */ = {isa = PBXBuildFile; fileRef = 46F5159D1C5EA61E00CB3DD7 /* reddit.proto */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		46F5158A1C5EA32300CB3DD7 /* SwiftProtobufTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftProtobufTests.swift; sourceTree = "<group>"; };
 		46F5158C1C5EA32300CB3DD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46F515961C5EA4D300CB3DD7 /* ProtocGenSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ProtocGenSwift.framework; path = Carthage/Build/iOS/ProtocGenSwift.framework; sourceTree = SOURCE_ROOT; };
+		46F5159D1C5EA61E00CB3DD7 /* reddit.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = reddit.proto; path = proto/reddit.proto; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		46F515741C5EA32200CB3DD7 /* SwiftProtobuf */ = {
 			isa = PBXGroup;
 			children = (
+				46F5159C1C5EA5C700CB3DD7 /* proto */,
 				46F515751C5EA32200CB3DD7 /* AppDelegate.swift */,
 				46F515771C5EA32200CB3DD7 /* ViewController.swift */,
 				46F515791C5EA32200CB3DD7 /* Main.storyboard */,
@@ -122,6 +125,14 @@
 			);
 			name = Frameworks;
 			path = SwiftProtobufTests;
+			sourceTree = "<group>";
+		};
+		46F5159C1C5EA5C700CB3DD7 /* proto */ = {
+			isa = PBXGroup;
+			children = (
+				46F5159D1C5EA61E00CB3DD7 /* reddit.proto */,
+			);
+			name = proto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 			files = (
 				46F515801C5EA32200CB3DD7 /* LaunchScreen.storyboard in Resources */,
 				46F5157D1C5EA32200CB3DD7 /* Assets.xcassets in Resources */,
+				46F5159E1C5EA61E00CB3DD7 /* reddit.proto in Resources */,
 				46F5157B1C5EA32200CB3DD7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,6 +22,7 @@
 		46F515A81C5EA73400CB3DD7 /* reddit.json in Resources */ = {isa = PBXBuildFile; fileRef = 46F515A71C5EA73400CB3DD7 /* reddit.json */; };
 		46F515AA1C5EA78500CB3DD7 /* Nocilla.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F515A91C5EA78500CB3DD7 /* Nocilla.framework */; };
 		46F515AB1C5EA78B00CB3DD7 /* Nocilla.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 46F515A91C5EA78500CB3DD7 /* Nocilla.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		46F515AD1C5EA7D500CB3DD7 /* ProtobufSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F515AC1C5EA7D500CB3DD7 /* ProtobufSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		46F515A01C5EA6C700CB3DD7 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
 		46F515A71C5EA73400CB3DD7 /* reddit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reddit.json; sourceTree = "<group>"; };
 		46F515A91C5EA78500CB3DD7 /* Nocilla.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nocilla.framework; path = Carthage/Build/iOS/Nocilla.framework; sourceTree = SOURCE_ROOT; };
+		46F515AC1C5EA7D500CB3DD7 /* ProtobufSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtobufSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				46F515A61C5EA72500CB3DD7 /* Resources */,
 				46F5158C1C5EA32300CB3DD7 /* Info.plist */,
+				46F515AC1C5EA7D500CB3DD7 /* ProtobufSpec.swift */,
 			);
 			path = SwiftProtobufTests;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F515AD1C5EA7D500CB3DD7 /* ProtobufSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -476,6 +481,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rstephens.SwiftProtobufTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftProtobuf.app/SwiftProtobuf";
 			};
 			name = Debug;
@@ -484,6 +490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

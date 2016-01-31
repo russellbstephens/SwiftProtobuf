@@ -4,6 +4,7 @@
 import Quick
 import Nimble
 import Nocilla
+import ProtocGenSwift
 
 @testable import SwiftProtobuf
 
@@ -27,12 +28,18 @@ class ProtobufSpec: QuickSpec {
         
         stubRequest("GET", url.absoluteString).andReturnRawResponse(jsonStubData)
         
-        describe("stubbing") {
+        describe("building from JSON") {
             
-            it("stubs") {
+            it("maps to the message definition") {
+                let data = NSData(contentsOfURL: url)!
                 
-                let urlData = NSData(contentsOfURL: url)
-                expect(urlData).toEventually(equal(jsonStubData))
+                do {
+                    let reader = try JSONReader.from(data)!
+                    let reddit = Reddit.fromReader(reader)
+                    expect(reddit.kind).toNot(beNil())
+                } catch {
+                    fail()
+                }
             }
         }
     }

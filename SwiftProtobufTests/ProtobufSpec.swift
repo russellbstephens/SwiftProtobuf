@@ -1,6 +1,3 @@
-//  Copyright © 2016 Russell Stephens. All rights reserved.
-//
-
 import Quick
 import Nimble
 import Nocilla

@@ -26,6 +26,9 @@ class ProtobufSpec: QuickSpec {
         let jsonStubPath = NSBundle(forClass: self.dynamicType).pathForResource("reddit", ofType: "json")!
         let jsonStubData = NSData(contentsOfFile: jsonStubPath)!
         
+        let protobufPath = NSBundle(forClass: self.dynamicType).pathForResource("reddit", ofType: "protobuf")!
+        let protobufData = NSData(contentsOfFile: protobufPath)!
+
         stubRequest("GET", url.absoluteString).andReturnRawResponse(jsonStubData)
         
         describe("building from JSON") {
@@ -40,6 +43,16 @@ class ProtobufSpec: QuickSpec {
                 } catch {
                     fail()
                 }
+            }
+        }
+        
+        describe("building from Protobuf") {
+            
+            it("maps to the message definition") {
+                
+                let reader = ProtobufReader.from(protobufData)!
+                let reddit = Reddit.fromReader(reader)
+                expect(reddit.kind).toNot(beNil())
             }
         }
     }

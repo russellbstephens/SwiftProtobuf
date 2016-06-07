@@ -36,7 +36,13 @@ class ProtobufSpec: QuickSpec {
                 do {
                     let reader = try JSONReader.from(data)!
                     let reddit = Reddit.fromReader(reader)
-                    expect(reddit.kind).toNot(beNil())
+                    expect(reddit.kind).to(equal("Listing"))
+                    let firstChild = reddit.data?.children.first
+                    expect(firstChild).toNot(beNil())
+                    let data = firstChild?.data
+                    expect(data).toNot(beNil())
+                    expect(data?.title).to(equal("The moon passed between Nasa's Deep Space Climate Observatory and the Earth"))
+                    expect(data?.permalink).to(equal("/r/space/comments/43j2kx/the_moon_passed_between_nasas_deep_space_climate/"))
                 } catch {
                     fail()
                 }

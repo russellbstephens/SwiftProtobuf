@@ -1,5 +1,18 @@
+message ChildData {
+    optional string domain = 1;
+    optional string title = 2;
+    optional string permalink = 3;
+}
+
+message Children {
+    optional string kind = 1;
+    optional ChildData data = 2;
+}
+
 message Data {
     optional string modHash = 1;
+    repeated Children children = 2;
+    optional string after = 3;
 }
 
 message Reddit {

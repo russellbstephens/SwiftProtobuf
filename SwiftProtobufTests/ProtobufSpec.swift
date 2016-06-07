@@ -22,40 +22,55 @@ class ProtobufSpec: QuickSpec {
         let url = NSURL(string: "http://www.reddit.com/.json")!
         let jsonStubPath = NSBundle(forClass: self.dynamicType).pathForResource("reddit", ofType: "json")!
         let jsonStubData = NSData(contentsOfFile: jsonStubPath)!
-        
-        let protobufPath = NSBundle(forClass: self.dynamicType).pathForResource("reddit", ofType: "protobuf")!
-        let protobufData = NSData(contentsOfFile: protobufPath)!
 
         stubRequest("GET", url.absoluteString).andReturnRawResponse(jsonStubData)
-        
+
         describe("building from JSON") {
             
             it("maps to the message definition") {
-                let data = NSData(contentsOfURL: url)!
-                
+
                 do {
+                    let data = NSData(contentsOfURL: url)!
                     let reader = try JSONReader.from(data)!
                     let reddit = Reddit.fromReader(reader)
                     expect(reddit.kind).to(equal("Listing"))
                     let firstChild = reddit.data?.children.first
                     expect(firstChild).toNot(beNil())
-                    let data = firstChild?.data
-                    expect(data).toNot(beNil())
-                    expect(data?.title).to(equal("The moon passed between Nasa's Deep Space Climate Observatory and the Earth"))
-                    expect(data?.permalink).to(equal("/r/space/comments/43j2kx/the_moon_passed_between_nasas_deep_space_climate/"))
+                    let childData = firstChild?.data
+                    expect(childData).toNot(beNil())
+                    expect(childData?.title).to(equal("The moon passed between Nasa's Deep Space Climate Observatory and the Earth"))
+                    expect(childData?.permalink).to(equal("/r/space/comments/43j2kx/the_moon_passed_between_nasas_deep_space_climate/"))
                 } catch {
                     fail()
                 }
             }
-        }
-        
-        describe("building from Protobuf") {
-            
-            it("maps to the message definition") {
-                
-                let reader = ProtobufReader.from(protobufData)!
-                let reddit = Reddit.fromReader(reader)
-                expect(reddit.kind).toNot(beNil())
+
+            it("translates to protobuf") {
+
+                do {
+                    let data = NSData(contentsOfURL: url)!
+                    let jsonReader = try JSONReader.from(data)!
+                    let messageFromJSON = Reddit.fromReader(jsonReader)
+
+                    let protoWriter = try ProtobufWriter.withCapacity(messageFromJSON.sizeInBytes)
+                    messageFromJSON.toWriter(protoWriter)
+
+                    let protobufData = try protoWriter.toBuffer()
+
+                    let protoReader = ProtobufReader.from(protobufData)!
+                    let messageFromProto = Reddit.fromReader(protoReader)
+
+                    expect(messageFromProto.kind).toNot(beNil())
+                    expect(messageFromProto.kind).to(equal("Listing"))
+                    let firstChild = messageFromProto.data?.children.first
+                    expect(firstChild).toNot(beNil())
+                    let childData = firstChild?.data
+                    expect(childData).toNot(beNil())
+                    expect(childData?.title).to(equal("The moon passed between Nasa's Deep Space Climate Observatory and the Earth"))
+                    expect(childData?.permalink).to(equal("/r/space/comments/43j2kx/the_moon_passed_between_nasas_deep_space_climate/"))
+                } catch {
+                    fail()
+                }
             }
         }
     }
